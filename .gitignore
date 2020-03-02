@@ -1,8 +1,13 @@
 .tags
-.idea/
 .buildpath
 .project
 .settings/
 .tags
 .tags_sorted_by_file
 /out/
+# IntelliJ project files
+*.idea
+*.iml
+
+/log
+.DS_Store
