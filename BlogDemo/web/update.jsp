@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- HTML5文档-->
 <!DOCTYPE html>
 <!-- 网页使用的语言 -->
@@ -23,41 +26,29 @@
 </head>
 <body>
 <div class="container">
-    <center><h3>添加联系人页面</h3></center>
-    <form action="" method="post">
+    <center><h3>修改文章页面</h3></center>
+    <form action="${pageContext.request.contextPath}/updateBlogServlet" method="post">
+        <input type="hidden" name="id" value="${blog.id}"/>
         <div class="form-group">
-            <label for="name">姓名：</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+            <label for="title">标题：</label>
+            <input type="text" class="form-control" id="title" name="title" value="${blog.title}" placeholder="请输入标题">
         </div>
 
         <div class="form-group">
-            <label>性别：</label>
-            <input type="radio" name="sex" value="男" checked="checked"/>男
-            <input type="radio" name="sex" value="女"/>女
-        </div>
-
-        <div class="form-group">
-            <label for="age">年龄：</label>
-            <input type="text" class="form-control" id="age" name="age" placeholder="请输入年龄">
-        </div>
-
-        <div class="form-group">
-            <label for="address">籍贯：</label>
-            <select name="address" class="form-control" id="address">
-                <option value="陕西">陕西</option>
-                <option value="北京">北京</option>
-                <option value="上海">上海</option>
+            <label for="type">分类：</label>
+            <select name="type" class="form-control" id="type">
+                <option value="情感" <c:if test="${blog.type == '情感'}">selected</c:if>>情感</option>
+                <option value="技术" <c:if test="${blog.type == '技术'}">selected</c:if>>技术</option>
+                <option value="资讯" <c:if test="${blog.type == '资讯'}">selected</c:if>>资讯</option>
             </select>
         </div>
-
         <div class="form-group">
-            <label for="qq">QQ：</label>
-            <input type="text" class="form-control" id="qq" name="qq" placeholder="请输入QQ号码"/>
+            <label for="summary">摘要：</label>
+            <input type="text" class="form-control" id="summary" name="summary" value="${blog.summary}" placeholder="请输入摘要">
         </div>
-
         <div class="form-group">
-            <label for="email">Email：</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="请输入邮箱地址"/>
+            <label for="content">内容：</label>
+            <input type="text" class="form-control" id="content" name="content" value="${blog.content}" placeholder="请输入内容"/>
         </div>
 
         <div class="form-group" style="text-align: center">
